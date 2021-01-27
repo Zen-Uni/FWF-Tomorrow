@@ -20,7 +20,7 @@
 body{
     margin: 0;
     padding: 0;
-   background: url(img/AdansoniaGrandidieri.jpg);
+   background: url(/client/static/img/ArganGoats.jpg);
 }
  /*将container容器分为两部分，即两大行，一大列。*/
 .container{
