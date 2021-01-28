@@ -1,0 +1,18 @@
+.list1{
+    width: 250px;
+    min-height: 150px;
+    background-color: #393939;
+    border-radius: 15px;
+    box-shadow: 0 0 4px black;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+}
+.spanmit{
+    width: 40px;
+    height: 25px;
+    background-color: violet;
+}

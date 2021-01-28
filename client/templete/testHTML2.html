@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<link rel="stylesheet" href="/client/style/testCSS2.css">
+</head>
+<body>
+
+<div id="div1">
+<p id="p1">这是一个段落。</p>
+<p id="p2">这是另外一个段落。</p>
+</div>
+    <input type="text" class="input">
+     <span onclick="fun()" class="spanmit">提交</span>
+ 
+
+<script>
+var invalue=document.getElementsByClassName("input")[0].value;
+var submit1=document.getElementsByClassName('submit');
+
+
+function fun(){
+var para = document.createElement("div");
+var node = document.createTextNode(invalue);
+para.appendChild(node);
+ 
+var element = document.getElementById("div1");
+element.appendChild(para);
+para.className="list1";
+}
+</script>
+
+</body>
+</html>
