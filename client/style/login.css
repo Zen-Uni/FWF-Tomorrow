@@ -1,0 +1,50 @@
+body {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.container__login {
+    background-color:white;
+    height: 300px;
+    width: 450px;
+    border: 3px solid;
+    border-radius: 15px;
+
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: repeat(2,45px);
+    justify-items: center;
+    justify-content: center;
+    align-content: space-around;
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+}
+.container__links {
+    display: grid;
+    grid-auto-flow: column;/*先列后行*/
+    grid-column-gap: 3px;/*设置列间距*/
+}
+.button__login {
+    background-color: rgb(39, 188, 247);
+    cursor: pointer;
+    width: 200px;
+    border-radius: 99px;
+    border-width: 0;
+    color:white;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+.button__login:hover {
+    opacity: 0.8;
+}
+.link {
+    text-decoration: none;
+    color: rgb(108,117,125);
+    transition: all 0.3s;
+}
+.link:hover {
+    color:rgb(61,66,70);
+}
