@@ -5,14 +5,18 @@
 
 // import models and components
 const router = require('koa-router')()
+const { SECRET, dispatchToken } = require('../middleware/jwt')
 const {
   User,
   Captcha
 } = require('../db/index')
 
 
-// import middleware
-const emailVerify = require('../middleware/emailVerify')
+
+// import controller
+const emailVerify = require('../controller/emailVerify')
+const registerController = require('../controller/register')
+
 
 // set root router
 router.prefix('/api/user')
@@ -27,7 +31,19 @@ router.post('/email', async (ctx, next) => {
 
 // user register api
 router.post('/register', async (ctx, next) => {
+  const { username, password, captcha, email } = ctx.request.body
+  const payload = {
+    username,
+    password,
+    captcha,
+    email,
+  }
 
+  const res = await registerController(payload)
+  const token = await dispatchToken(username)
+
+  ctx.response.set('Bearer', token)
+  ctx.body = res
 })
 
 // user login api

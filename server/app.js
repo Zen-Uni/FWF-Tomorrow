@@ -9,6 +9,11 @@ const logger = require('koa-logger')
 // cors
 const cors = require('koa2-cors');
 
+// jwt
+const jwt = require('koa-jwt')
+const { SECRET, jwtRightVerify } = require('./middleware/jwt')
+
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 const test = require('./routes/test')
@@ -16,7 +21,19 @@ const test = require('./routes/test')
 // error handler
 onerror(app)
 
+
+
 // middlewares
+// jwt 鉴权处理
+app.use(jwtRightVerify)
+
+app.use(jwt({
+  secret: SECRET,
+}).unless({
+  path: [/^\/api\/user\//]
+})
+)
+
 
 app.use(cors({
   origin: "*",  // 允许 所有的都可以跨域

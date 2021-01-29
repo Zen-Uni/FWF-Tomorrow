@@ -1,3 +1,8 @@
+/**
+ * @description result model
+ * @author Uni
+ */
+
 class BaseModel {
     constructor(data, msg) {
         if (typeof data === 'string') {
