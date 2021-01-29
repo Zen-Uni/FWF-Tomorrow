@@ -1,0 +1,6 @@
+# ignore node_module
+server/node_modules
+
+# ignore test model
+
+test/
