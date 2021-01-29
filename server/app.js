@@ -6,6 +6,9 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+// cors
+const cors = require('koa2-cors');
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 const test = require('./routes/test')
@@ -15,7 +18,14 @@ onerror(app)
 
 // middlewares
 
-
+app.use(cors({
+  origin: "*",  // 允许 所有的都可以跨域
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 50000,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))

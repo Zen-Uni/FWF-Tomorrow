@@ -2,4 +2,5 @@
 server/node_modules
 
 # ignore test model
-PromiseTest.js
+
+test/
