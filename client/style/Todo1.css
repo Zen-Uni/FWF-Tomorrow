@@ -1,0 +1,110 @@
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{  
+    color: white;
+    opacity: 0.6;
+    font-size: 17px;
+ }
+ body{
+    margin: 0;
+    padding: 0;
+    background: url(../static/img/上海.jpg);
+ }
+ .container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.inputPopup{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    display: none;
+}
+.inputPopup--input{
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    text-indent:15px;
+    margin-left: 35px;
+}
+/* 去除输入框，button框外的蓝色边框 */
+input{
+    outline:none; 
+}
+button{
+    outline:none; 
+ }
+.inputPopup--submit{
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding-bottom: 4px;
+}
+.inputPopup--submit:hover{
+    color: rgb(187, 53, 53);
+}
+.but{
+     width: 90px;
+     height: 30px;
+     border: none;
+     border-radius: 15px;
+     margin-top: 10px;
+     margin-left: 10px;
+     font-size: 15px;
+     color: white;
+     background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+     background-blend-mode: multiply;
+     font-weight: 650;   
+        }
+ .but:hover{
+     color: white;
+     transform: scale(1.1);
+ }
+ /* 新创建的卡片的属性 */
+ .Newlist{ 
+    display: block;
+    width: 250px;
+    min-height: 180px;
+    background-color: #393939;
+    border-radius: 15px;
+    box-shadow: 0 0 4px black;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left; 
+    text-align: center;
+    color: white;
+    font-size: 17px;
+}
+ /* 列表卡片名称 */
+ .listName{
+    cursor: pointer;
+    border:1px solid white ;
+    font-weight: 700;
+     border-top-width: 0px;
+     border-left-width: 0;
+     border-right-width: 0;
+     min-height: 25px;
+     width: 96%;
+     margin: 0 auto;
+}
+/* 新创建卡片的关闭按钮x样式 */
+.closeSpan{
+    width: 14px;
+    height: 23px;
+    margin-top: -25px;
+    margin-left: 205px;
+    cursor: pointer;
+    display: none;
+}
+.closeSpan:hover{
+    display: block;
+    font-size: 18px;
+}
+.listName:hover+.closeSpan {
+    display: block;
+}
+
+
