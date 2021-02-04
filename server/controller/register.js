@@ -9,6 +9,7 @@ const {
     User,
     Captcha,
  } = require('../db/')
+const { dispatchToken } = require('../middleware/jwt')
 
 /**
  * @description check the correctness of the verification code
@@ -59,7 +60,7 @@ const saveUser = async ({email, password, username}) => {
                 console.log('save user error --- ', err)
                 reject(err)
             } else {
-                resolve(new SuccessModel('注册成功！'))
+                resolve(true)
             }
         })
     })
@@ -71,7 +72,11 @@ const registerController = async (payload) => {
         const captchaExist = await checkCaptcha(payload)
         if (captchaExist) {
             const res = await saveUser(payload)
-            return res
+            if (res) {
+                const token = await dispatchToken(payload.email)
+                console.log(token)
+                return new SuccessModel({ token }, '注册成功！')
+            }
         } else {
             return new ErrorModel('验证码错误！')
         }

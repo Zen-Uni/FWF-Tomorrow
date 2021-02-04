@@ -16,6 +16,7 @@ const {
 // import controller
 const emailVerify = require('../controller/emailVerify')
 const registerController = require('../controller/register')
+const loginController = require('../controller/login')
 
 
 // set root router
@@ -40,15 +41,21 @@ router.post('/register', async (ctx, next) => {
   }
 
   const res = await registerController(payload)
-  const token = await dispatchToken(username)
 
-  ctx.response.set('Bearer', token)
   ctx.body = res
 })
 
 // user login api
-router.get('/login', function (ctx, next) {
-  ctx.body = 'this is a users/bar response'
+router.post('/login', async (ctx, next) => {
+  const { email, password } = ctx.request.body
+  console.log(email, password)
+  const payload = {
+    email, 
+    password
+  }
+  const res = await loginController(payload)
+  console.log('ok')
+  ctx.body = res
 })
 
 
